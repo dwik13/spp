@@ -837,7 +837,7 @@ class MasterData extends CI_Controller
             if ($query == true) {
                 $this->session->set_flashdata(
                     'message',
-                    'Data Jurusan berhasil diedit'
+                    'Data Jurusan berhasil ditambahkan'
                 );
                 redirect('masterdata/jurusan');
             }
