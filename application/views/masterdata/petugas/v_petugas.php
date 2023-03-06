@@ -127,7 +127,7 @@
                         data-target="#exampleModaleditpass<?=$ptg->id_petugas;?>"><i class="fas fa-key"></i> Ubah Kata
                         Sandi?
                     </button>
-                    <button type="submit" class="btn btn-info ">Update</button>
+                    <button type="submit" class="btn btn-info ">Simpan</button>
                 </div>
             </form>
 
@@ -173,7 +173,7 @@
                     <a href="#" class="btn btn-warning text-white" data-toggle="modal" data-dismiss="modal"
                         data-target="#exampleModaledit<?= $ptg->id_petugas; ?>"><i class="fas fa-arrow-left"></i>
                         Kembali?</a>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
