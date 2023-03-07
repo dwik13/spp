@@ -37,14 +37,17 @@ class MasterData extends CI_Controller
 	//menampilkan petugas
 	public function petugas(){
 		$data['title'] = 'Data Petugas';
+
+		//menampilkan user yang login pada profil
 		$data['user'] = $this->db->get_where('tb_petugas', ['username' => $this->session->userdata('username')])->row_array();
 
 		//menampilkan tb_level
 		$data['level'] = $this->db->get_where('tb_level')->result_array();
 
-		//menampilkan tb_petugas dan join an nya
+		//menampilkan tb_petugas dan join an nya yaitu tb_level
 		$data['petugas'] = $this->Data->getpetugas();
 	
+		//tampilkan view
 		$this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/navbar', $data);
@@ -120,7 +123,7 @@ class MasterData extends CI_Controller
 
 	// edit petugas
 	public function edit_petugas(){
-		// username tidak bisa diganti
+		// username tidak bisa diganti karena untuk login jadi harus uniq(berbeda dengan yang lain)
 		$this->form_validation->set_rules('nama_petugas', 'Nama_petugas', 'required|trim');
 		$this->form_validation->set_rules('level_id', 'Nama_petugas', 'required|trim');
 	
@@ -297,8 +300,8 @@ class MasterData extends CI_Controller
 			]);
 			$this->form_validation->set_rules('no_telp', 'No.Telp', 'required|trim|min_length[10]|max_length[13]', [
 				'required' => 'No.Telp tidak boleh kosong!',
-				'min_length' => 'Password minimal 10 karakter.',
-				'max_length' => 'Password maximal 13 karakter.'
+				'min_length' => 'no telp minimal 10 karakter.',
+				'max_length' => 'no telp maximal 13 karakter.'
 			]);
 			$this->form_validation->set_rules('tempo', 'Jatuh Tempo', 'required', [
 				'required' => 'Tempo tidak boleh kosong!',

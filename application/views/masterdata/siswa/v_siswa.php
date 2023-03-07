@@ -85,7 +85,7 @@
                                 <?php } ?>
                             </td>
 
-                            <!-- jika siswa ini tidak aktif maka tidak bisa mengedit kenaikan ataupun edit data siswa itu -->
+                            <!-- jika siswa ini  aktif maka  bisa mengedit kenaikan ataupun edit data siswa itu jika tidak aktif maka tidakk dapat mengedit -->
                             <?php if($sw->status == 'aktif'){ ?>
                             <td>
                                 <a class="btn btn-success btn-sm"
@@ -110,81 +110,3 @@
 
 </div>
 <!-- /.container-fluid -->
-
-<!-- edit kenaikan untuk merubah kenaikan kelas siswa -->
-<?php foreach ($siswa as $sw) : ?>
-<div class="modal fade" id="exampleModaledittahun<?=$sw->nisn?>" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Siswa</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="<?= base_url('masterdata/edit_tahun'); ?>" method="post">
-                <div class="modal-body">
-                    <input type="hidden" id="id" name="id" value="<?= $sw->nisn; ?>">
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="nisn" name="nisn" value="<?= $sw->nisn ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="kelas">Kelas</label>
-                        <select class="form-control" id="kelas_id" name="kelas_id">
-                            <option value="<?= $sw->id_kelas ?>"><?= $sw->nama_kelas ?></option>
-
-                            <!-- memecah kelas dengan spasi -->
-                            <?php foreach ($kelassama as $row){
-							$nama_kelas = explode(' ', $row->nama_kelas);
-							$kelas1 = trim($nama_kelas[1] .' '. $nama_kelas[2]);
-							$kelas3 = trim($nama_kelas[0].' '. $nama_kelas[1] .' '. $nama_kelas[2]);
-
-							?>
-
-                            <!-- memecah kelas sesuai nisn siswa -->
-                            <?php $namakls = $sw->nama_kelas;
-							$namaklskalimat = explode(' ', $namakls);
-							$kelas2 = trim($namaklskalimat[1] .' '. $namaklskalimat[2]);?>
-
-                            <!-- menyamakan kelas untuk diambil -->
-                            <?php if($kelas2 === $kelas1) : ?>
-                            <option value="<?= $row->id_kelas ?>"><?= $kelas3 ?></option>
-                            <?php endif; ?>
-
-                            <?php } ?>
-                        </select>
-
-                        <?= form_error('kelas_id', '<small class="text-danger ml-2">', '</small>'); ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="spp">Tahun</label>
-                        <select class="form-control" id="spp_id" name="spp_id">
-                            <option value="<?= $sw->id_spp ?>">Tahun: <?= $sw->tahun ?> Nominal: <?= $sw->nominal?>
-                            </option>
-                            <?php foreach ($spp as $sp) : ?>
-                            <option value="<?= $sp->id_spp ?>">Tahun: <?= $sp->tahun ?> Nominal: <?= $sp->nominal ?>
-                            </option>
-                            <?php endforeach ?>
-                        </select>
-                        <?= form_error('spp_id', '<small class="text-danger ml-2">', '</small>'); ?>
-                    </div>
-                    <div class="form-group" id="tempo">
-                        <label for="spp">Bulan Awal Bayar</label>
-                        <input type="date" class="form-control" id="tempo" name="tempo" value="<?= date('Y-m-d') ?>">
-                        <?= form_error('tempo', '<small class="text-danger ml-2">', '</small>'); ?>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="#" class="btn btn-warning text-white" data-toggle="modal" data-dismiss="modal"
-                        data-target="#exampleModaleditsiswa<?= $sw->nisn ?>"><i class="fas fa-arrow-left"></i>
-                        Kembali?</a>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<?php endforeach; ?>

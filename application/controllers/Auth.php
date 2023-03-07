@@ -14,9 +14,11 @@ class Auth extends CI_Controller {
 
 	//login validasi
 	public function index(){
+		//jika benar maka kembalikan data ke controller user yaitu dashboard
 		if ($this->session->userdata('username') || $this->session->userdata('nisn')) {
             redirect('user');
         }
+
 		$this->form_validation->set_rules('username', 'Username', 'required', [
             'required' => 'Username tidak boleh kosong!'
         ]);
@@ -36,8 +38,9 @@ class Auth extends CI_Controller {
 	public function _login()
     {
         $username = $this->input->post('username');
-		$password = md5($this->input->post('password'));  //md5 = keperluan dalam membangun keamanan sebuah sebuah aplikasi
+		$password = md5($this->input->post('password'));  //md5 = keperluan dalam membangun keamanan sebuah sebuah aplikasi (untuk merubah sebuah kata/kalimat menjadi kode acak)
 
+		
         $chk = $this->Account->login_check($username, $password); // melakukan cek untuk tabel petugas
         $chk_siswa = $this->Account->siswa_check($username, $this->input->post('password')); // melakukan cek untuk tabel siswa
 
@@ -78,6 +81,10 @@ class Auth extends CI_Controller {
                 'image' => $userdata->image,
             ];
 
+			// session adalah data yang disimpan di server, dimana data tersebut dapat diakses secara global di server tersebut.
+
+			// Fitur aplikasi yang sering menggunakan session ini adalah proses login user, dimana biasanya digunakan untuk menyimpan data user yang sedang login, sehingga data tersebut dapat dibaca oleh seluruh file didalam server.
+
             $this->session->set_userdata($data);
             redirect('user');
 
@@ -93,6 +100,7 @@ class Auth extends CI_Controller {
 
 	public function logout()
     {
+		//untuk menghapus session
         $this->session->sess_destroy();
 
         redirect('auth');

@@ -56,6 +56,7 @@
 
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $p->username; ?></td>
+                            <!-- password ditampilkan karena ketika petugas lupa password maka bertanya ke admin dan admin bisa melihat password petugas itu -->
                             <td><?= $p->deskripsi; ?></td>
                             <td><?= $p->nama_petugas; ?></td>
                             <td><?= $p->level; ?></td>
@@ -82,6 +83,7 @@
 </div>
 <!-- /.container-fluid -->
 
+<!-- modal -->
 <!-- edit petugas -->
 <?php foreach ($petugas as $ptg) : ?>
 <div class="modal fade" id="exampleModaledit<?=$ptg->id_petugas?>">
@@ -137,7 +139,7 @@
 <?php endforeach; ?>
 
 
-<!-- edit password petugas -->
+<!-- reset password petugas -->
 <?php foreach ($petugas as $ptg) : ?>
 <div class="modal fade" id="exampleModaleditpass<?=$ptg->id_petugas?>" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">

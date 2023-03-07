@@ -143,19 +143,16 @@
                                 <div class="row mt-3">
                                     <div class="col-2 text-center ms-auto">
                                         <a class="btn btn-link px-3" href="javascript:;">
-                                            <!-- <i class="fa fa-facebook text-white text-lg"></i> -->
                                             <i class="fas fa-fw fa-circle text-white text-lg"></i>
                                         </a>
                                     </div>
                                     <div class="col-2 text-center">
                                         <a class="btn btn-link px-3" href="javascript:;">
-                                            <!-- <i class="fa fa-facebook text-white text-lg"></i> -->
                                             <i class="fas fa-fw fa-circle text-white text-lg"></i>
                                         </a>
                                     </div>
                                     <div class="col-2 text-center px-1">
                                         <a class="btn btn-link px-3" href="javascript:;">
-                                            <!-- <i class="fa fa-github text-white text-lg"></i> -->
                                             <i class="fas fa-fw fa-circle text-white text-lg"></i>
 
                                         </a>
@@ -163,7 +160,6 @@
 
                                     <div class="col-2 text-center me-auto">
                                         <a class="btn btn-link px-3" href="javascript:;">
-                                            <!-- <i class="fa fa-google text-white text-lg"></i> -->
                                             <i class="fas fa-fw fa-circle text-white text-lg"></i>
 
                                         </a>
@@ -175,6 +171,7 @@
                             <?= $this->session->flashdata('message'); ?>
                             <!-- mengarah pada controller auth -->
                             <form method="post" name="login" action="<?= base_url('auth') ?>" class="text-start">
+                                <!-- Fitur autocomplete suggestion merupakan fitur yang diimplementasikan pada web browser dan mesin pencari yang memungkinkan web browser atau mesin pencari untuk memberikan saran pencarian ketika baru beberapa kata diketikan dalam kolom pencarian atau address bar. -->
                                 <div class="input-group input-group-outline">
                                     <label class="form-label">Username/NISN</label>
                                     <input type="text" id="username" name="username" autocomplete="off" autofocus

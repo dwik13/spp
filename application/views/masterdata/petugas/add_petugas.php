@@ -34,6 +34,8 @@
                         placeholder="Ulangi password baru.." autocomplete="off">
                     <?= form_error('password2', '<small class="text-danger ml-2">', '</small>'); ?>
                 </div>
+
+                <!-- admin dapat menambahkan admin lain nya -->
                 <div class="form-group">
                     <label for="level_id" style="text-align:bold;">Level</label>
                     <select class="form-control" id="level_id" name="level_id">

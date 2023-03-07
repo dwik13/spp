@@ -75,7 +75,7 @@
 </div>
 
 
-<!-- edit kenaikan untuk merubah kenaikan kelas siswa -->
+<!-- edit kenaikan untuk merubah kenaikan kelas siswa jika kenaikan diubah maka pada tabel pembayaran ditambahkan -->
 <?php foreach ($siswa as $sw) : ?>
 <div class="modal fade" id="exampleModaledittahun<?=$sw->nisn?>" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
