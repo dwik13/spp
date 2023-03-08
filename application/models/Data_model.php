@@ -89,6 +89,7 @@ class Data_model extends CI_Model
     }
 
 	//memecah nama kelas (masterdata/siswa)
+	//fungsi trim memecah spasi di depan dan dibelakang
 	public function kelassama(){
 		$query ="SELECT `id_kelas`, TRIM(nama_kelas) as nama_kelas FROM tb_kelas JOIN `tb_jurusan` ON `tb_kelas`.`id_jurusan` = `tb_jurusan`.`id_jurusan` ORDER BY `tb_kelas`.`id_jurusan` ASC";
 		$this->db->from('tb_kelas');
@@ -134,6 +135,7 @@ class Data_model extends CI_Model
 
 	//kelas
 
+	//ambil tb_kelas dan join an nya
 	public function kelasget(){
 		$query ="SELECT `tb_kelas`.*, `tb_jurusan`.`jurusan` FROM `tb_kelas` JOIN `tb_jurusan` ON `tb_kelas`.`id_jurusan` = `tb_jurusan`.`id_jurusan` ORDER BY `tb_kelas`.`id_jurusan` ASC";
 
@@ -172,6 +174,7 @@ class Data_model extends CI_Model
         return $this->db->query($query)->row();
     }
 
+	//menampilkan siswa yang aktif untuk membayar spp
 	public function siswapembayaran(){
 		$query = "SELECT `tb_siswa`.*, `tb_kelas`.`nama_kelas`, `tb_spp`.`tahun`, `tb_spp`.`nominal`
 		FROM `tb_siswa` JOIN `tb_kelas`
@@ -220,7 +223,7 @@ class Data_model extends CI_Model
 		}
 	}
 
-		// cetak pembayaran siswa yang sudah lunas secara row
+		// cetak pembayaran siswa yang sudah lunas secara row untuk keterangan siswa
 		public function cetakpembayaran($id)
 		{
 			$query = "SELECT `tb_pembayaran`.*, `tb_siswa`.* ,`tb_petugas` . `nama_petugas`, `tb_spp`.`tahun`, `tb_spp`.`nominal`, `tb_kelas`.`nama_kelas`

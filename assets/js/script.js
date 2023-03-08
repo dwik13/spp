@@ -1,5 +1,6 @@
 $(function () {
 	function getSubtotal() {
+		//Fungsi LET menetapkan nama ke hasil perhitungan
 		let total_bayar = 0;
 		$(document)
 			//find digunakan untuk mempermudah kita mencari sebuah data dalam suatu array
