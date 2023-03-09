@@ -409,7 +409,7 @@ class MasterData extends CI_Controller
 
 						// membuat tanggal jatuh tempo nya setiap tanggal 20
 						//perulangan bulan, jatuh tempo
-						//pertanyaan jatuh tempo itu kan cuma dibuat perulangan apa perlu? 
+						//pertanyaan jatuh tempo itu kan cuma dibuat perulangan appea rlu? 
 						// strtotime = mengubah string waktu dan tanggal menjadi standar times tamp unix
 						//+$i month  sama dengan 01 = januari, yang diulang adalah bulan
 						$jatuhTempo = date('Y-m-d', strtotime("+$i month", strtotime($awalTempo)));
@@ -932,6 +932,8 @@ class MasterData extends CI_Controller
 		$data['title'] = 'Data Kelas';
 		$data['user'] = $this->db->get_where('tb_petugas', ['username' => $this->session->userdata('username')])->row_array();
         $data['siswa'] = $this->db->get_where('tb_siswa', ['nisn' => $this->session->userdata('nisn')])->row_array();
+
+		//ambil tabel kelas dan joinanya
 		$data['kelas'] = $this->Data->kelasget();
 		$data['jurusan'] = $this->db->get('tb_jurusan')->result();
 

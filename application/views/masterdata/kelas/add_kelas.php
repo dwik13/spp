@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-3 text-gray-800"><?= $title; ?></h1>
+    <h1 class="h3 mb-3 text-gray-800">Tambah Kelas</h1>
 
     <div class="card shadow mb-4" style="width: 602px;">
         <div class="card-body">

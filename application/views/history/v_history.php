@@ -52,7 +52,7 @@
                                 <td><?= $pem->tahun ?></td>
                                 <td><?= $pem->nama_petugas ?></td>
                                 <td><?= $pem->bulan_dibayar ?></td>
-                                <td><?= $pem->tgl_bayar ?></td>
+                                <td><?= mediumdate_indo($pem->tgl_bayar) ?></td>
                                 <td><?= "Rp. " . number_format($pem->jumlah_bayar, 0, '.', '.') ?></td>
                                 <?php if ($pem->ket == null) : ?>
                                 <td class="text-center text-danger">---</td>

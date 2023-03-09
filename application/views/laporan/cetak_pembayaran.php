@@ -94,7 +94,7 @@
         <?php $i++; ?>
         <?php endforeach; ?>
         <tr>
-            <td scope="row" colspan="5"
+            <td scope="row" colspan="6"
                 style="text-align:center ; font-weight:bold; font-size: 13px;background-color: #f9f8f8;">Grand Total
             </td>
             <td style="font-weight:bold; font-size: 13px;background-color: #f9f8f8;">

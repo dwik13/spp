@@ -78,7 +78,8 @@
         <tr>
             <td width="80">NISN </td>
             <td width="240"><?= ' : '. $siswatransaksi['nisn']; ?></td>
-
+            <td width="80">NIS</td>
+            <td><?= ' : '. $siswatransaksi['nis']; ?></td>
         </tr>
 
 

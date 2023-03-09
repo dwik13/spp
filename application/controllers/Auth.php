@@ -12,6 +12,8 @@ class Auth extends CI_Controller {
         $this->load->library('form_validation');
     }
 
+	//Foreign Key digunakan untuk menandai suatu tabel terhubung dengan tabel lain dalam konteks tabel parent dan child.
+
 	//login validasi
 	public function index(){
 		//jika benar maka kembalikan data ke controller user yaitu dashboard
@@ -35,6 +37,7 @@ class Auth extends CI_Controller {
         }
 	}
 
+	//Login multiuser berarti suatu akses login yang dapat dilakukan oleh lebih dari satu user. 
 	public function _login()
     {
         $username = $this->input->post('username');

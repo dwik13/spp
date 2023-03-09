@@ -102,6 +102,8 @@
                                                         <select class="form-control pembayaran" id="id_pembayaran"
                                                             name="id_pembayaran">
                                                             <!-- <option value="" selected>-- Pilih Bulan --</option> -->
+
+                                                            <!-- menampilkan bulan yang belum dibayar -->
                                                             <?php foreach ($transaksitambah as $tt) : ?>
                                                             <option value="<?= $tt->id_pembayaran ?>">
                                                                 <?= $tt->bulan_dibayar ?>

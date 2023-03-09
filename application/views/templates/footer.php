@@ -57,6 +57,8 @@
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
 <script src="<?= base_url('assets/')?>js/script.js"></script>
 
+
+<!-- profile -->
 <script>
 $('.custom-file-input').on('change', function() {
     let fileName = $(this).val().split('\\').pop();
