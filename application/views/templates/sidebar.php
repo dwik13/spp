@@ -58,10 +58,10 @@
                 <h6 class="collapse-header">Master Data</h6>
                 <a class="collapse-item <?= $title == 'Data Petugas' ? 'active' : '' ?>"
                     href="<?= base_url('masterdata/petugas'); ?>">Data Petugas</a>
-                <a class="collapse-item <?= $title == 'Data Siswa' ? 'active' : '' ?>"
-                    href="<?= base_url('masterdata/siswa'); ?>">Data Siswa</a>
                 <a class="collapse-item <?= $title == 'Data SPP' ? 'active' : '' ?>"
                     href="<?= base_url('masterdata/spp'); ?>">Data SPP</a>
+                <a class="collapse-item <?= $title == 'Data Siswa' ? 'active' : '' ?>"
+                    href="<?= base_url('masterdata/siswa'); ?>">Data Siswa</a>
                 <a class="collapse-item <?= $title == 'Data Jurusan' ? 'active' : '' ?>"
                     href="<?= base_url('masterdata/jurusan'); ?>">Data Jurusan</a>
                 <a class="collapse-item <?= $title == 'Data Kelas' ? 'active' : '' ?>"
@@ -82,8 +82,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Master Data </h6>
                 <a class="collapse-item" href="<?= base_url('masterdata/petugas'); ?>">Data Petugas</a>
-                <a class="collapse-item" href="<?= base_url('masterdata/siswa'); ?>">Data Siswa</a>
                 <a class="collapse-item" href="<?= base_url('masterdata/spp'); ?>">Data SPP</a>
+                <a class="collapse-item" href="<?= base_url('masterdata/siswa'); ?>">Data Siswa</a>
                 <a class="collapse-item" href="<?= base_url('masterdata/jurusan'); ?>">Data Jurusan</a>
                 <a class="collapse-item" href="<?= base_url('masterdata/kelas'); ?>">Data Kelas</a>
             </div>

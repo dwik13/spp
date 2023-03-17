@@ -80,7 +80,7 @@ window.setTimeout(function() {
 $('.status').change(function() {
     var status = $(this).val();
     var kt = status.substr(0, 10);
-    var stt = status.substr(10, 10);
+    var stt = status.substr(10, 11);
 
     console.log(stt);
 

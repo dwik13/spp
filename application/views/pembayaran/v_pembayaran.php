@@ -106,7 +106,7 @@
                                                             <!-- menampilkan bulan yang belum dibayar -->
                                                             <?php foreach ($transaksitambah as $tt) : ?>
                                                             <option value="<?= $tt->id_pembayaran ?>">
-                                                                <?= $tt->bulan_dibayar ?>
+                                                                <?= $tt->bulan_dibayar .'  '. $tt->tahun ?>
                                                             </option>
                                                             <?php endforeach ?>
                                                         </select>

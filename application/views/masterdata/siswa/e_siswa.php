@@ -35,11 +35,16 @@
                         <?php }else{ ?>
                         <img src="<?= base_url('assets/img/profile/') . $imagesiswa['image']; ?>" class="img-thumbnail">
                         <?php } ?>
+                        <small>File type:gif, png, jpeg, jpg<br>Max size:2MB</small>
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="image" name="image"
                             value="<?=$imagesiswa['image'];?>">
                         <label for="image" class="custom-file-label">Choose file</label>
+
+                        <small class="text-danger">
+                            <?php echo form_error('image') ?>
+                        </small>
                     </div>
                 </div>
                 <div class="form-group">
@@ -102,6 +107,7 @@
                             <?php foreach ($kelassama as $row){
 							$nama_kelas = explode(' ', $row->nama_kelas);
 							$kelas1 = trim($nama_kelas[1] .' '. $nama_kelas[2]); // RPL 1
+							$kelas0 = trim($nama_kelas[0]); // RPL 1
 							$kelas3 = trim($nama_kelas[0].' '. $nama_kelas[1] .' '. $nama_kelas[2]); // X RPL 1
 
 							?>
@@ -109,12 +115,15 @@
                             <!-- memecah kelas sesuai nisn siswa -->
                             <?php $namakls = $sw->nama_kelas;
 							$namaklskalimat = explode(' ', $namakls);
+							$kelasawal = trim($namaklskalimat[0]);
 							$kelas2 = trim($namaklskalimat[1] .' '. $namaklskalimat[2]); // RPL 1
 							?>
 
                             <!-- menyamakan kelas untuk diambil -->
                             <?php if($kelas2 === $kelas1) : ?>
+                            <?php if($kelas0 > $kelasawal ) : ?>
                             <option value="<?= $row->id_kelas ?>"><?= $kelas3 ?></option>
+                            <?php endif; ?>
                             <?php endif; ?>
 
                             <?php } ?>

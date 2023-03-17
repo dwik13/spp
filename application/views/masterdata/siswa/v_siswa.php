@@ -74,28 +74,41 @@
                             <td><?= $sw->tahun; ?></td>
                             <td><?= $sw->alamat; ?></td>
                             <td><?= $sw->no_telp; ?></td>
+
+                            <?php if ($sw->status == 'aktif') : ?>
+                            <td class="text-center text-success" style="font-weight: bold;font-size:20px;">
+                                <?= $sw->status ?></td>
+                            <?php else : ?>
+                            <td class="text-center text-danger" style="font-weight: bold;font-size:20px;">
+                                <?= $sw->status ?></td>
+                            <?php endif; ?>
+                            <!-- jika siswa ini  aktif maka  bisa mengedit kenaikan ataupun edit data siswa itu jika tidak aktif maka tidakk dapat mengedit -->
+                            <?php if($sw->status === 'aktif'){ ?>
                             <td>
+                                <a class="btn btn-success btn-sm mb-2"
+                                    href="<?= base_url('masterdata/edit_siswa/' . $sw->nisn); ?>">Edit</a>
+
                                 <?php if ($sw->status == "aktif") { ?>
                                 <select name="status" class="badge badge-success status">
                                     <option value="<?= $sw->nisn; ?>aktif" selected>Aktif</option>
-                                    <option value="<?= $sw->nisn; ?>tdkaktif">Tidak Aktif</option>
+                                    <option value="<?= $sw->nisn; ?>tidak aktif">Tidak Aktif</option>
                                 </select>
                                 <?php }else { ?>
                                 <button class="btn btn-danger btn-sm dropdown-toggle">Tidak Aktif</button>
                                 <?php } ?>
-                            </td>
-
-                            <!-- jika siswa ini  aktif maka  bisa mengedit kenaikan ataupun edit data siswa itu jika tidak aktif maka tidakk dapat mengedit -->
-                            <?php if($sw->status == 'aktif'){ ?>
-                            <td>
-                                <a class="btn btn-success btn-sm"
-                                    href="<?= base_url('masterdata/edit_siswa/' . $sw->nisn); ?>">Edit</a>
                                 <!-- <button onclick="hapusSiswa('<?= base_url('masterdata/hapus_siswa/' . $sw->nisn ) ?>')"
                                     class="btn btn-danger btn-sm tombol-hapus">Delete</button> -->
                             </td>
                             <?php }else{ ?>
                             <td>
-
+                                <?php if ($sw->status == "aktif") { ?>
+                                <select name="status" class="badge badge-success status">
+                                    <option value="<?= $sw->nisn; ?>aktif" selected>Aktif</option>
+                                    <option value="<?= $sw->nisn; ?>tidak aktif">Tidak Aktif</option>
+                                </select>
+                                <?php }else { ?>
+                                <button class="btn btn-danger btn-sm dropdown-toggle">Tidak Aktif</button>
+                                <?php } ?>
                             </td>
                             <?php } ?>
                         </tr>

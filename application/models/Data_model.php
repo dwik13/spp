@@ -293,7 +293,7 @@ class Data_model extends CI_Model
     {
         $query = "SELECT `tb_pembayaran`.*, `tb_siswa`.* , `tb_spp`.`tahun`, `tb_spp`.`nominal`, `tb_kelas`.`nama_kelas`, `tb_jurusan`.`jurusan`, `tb_petugas`.`nama_petugas`
         FROM `tb_pembayaran`,`tb_siswa`,`tb_spp`,`tb_kelas`, `tb_jurusan`, tb_petugas WHERE
-        `tb_pembayaran`.`nisn` = `tb_siswa`.`nisn` AND  `tb_pembayaran`.`id_petugas` = `tb_petugas`.`id_petugas` AND `tb_siswa`.`id_kelas` = `tb_kelas`.`id_kelas` AND `tb_siswa`.`id_spp` = `tb_spp`.`id_spp` AND `tb_kelas`.`id_jurusan` = `tb_jurusan`.`id_jurusan` AND  `tb_siswa`.`status` = 'aktif' AND `tb_pembayaran`.`ket` = 'LUNAS' ORDER BY `tb_pembayaran`.`id_pembayaran` ASC
+        `tb_pembayaran`.`nisn` = `tb_siswa`.`nisn` AND  `tb_pembayaran`.`id_petugas` = `tb_petugas`.`id_petugas` AND `tb_siswa`.`id_kelas` = `tb_kelas`.`id_kelas` AND `tb_siswa`.`id_spp` = `tb_spp`.`id_spp` AND `tb_kelas`.`id_jurusan` = `tb_jurusan`.`id_jurusan` AND  `tb_siswa`.`status` = 'aktif' AND `tb_pembayaran`.`ket` = 'LUNAS' ORDER BY `tb_pembayaran`.`tgl_bayar` DESC
         ";
 
         return $this->db->query($query)->result();

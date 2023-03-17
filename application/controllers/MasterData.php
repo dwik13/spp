@@ -306,6 +306,7 @@ class MasterData extends CI_Controller
 			$this->form_validation->set_rules('tempo', 'Jatuh Tempo', 'required', [
 				'required' => 'Tempo tidak boleh kosong!',
 			]);
+			$this->form_validation->set_rules('image', 'Image', 'callback_validate_image');
 			
 			if ($this->form_validation->run() == false) {
 
@@ -375,6 +376,8 @@ class MasterData extends CI_Controller
 						echo $this->upload->display_errors();
 					} else {
 						$image = $this->upload->data('file_name');
+
+						
 					}
 				}
 
@@ -439,6 +442,34 @@ class MasterData extends CI_Controller
 			}
 	}
 
+	public function validate_image()
+    {
+        $check = TRUE;
+        if ((!isset($_FILES['image'])) || $_FILES['image']['size'] == 0) {
+            $this->form_validation->set_message('validate_image', 'The {field} field is required');
+            $check = FALSE;
+        } else if (isset($_FILES['image']) && $_FILES['image']['size'] != 0) {
+            $allowedExts = array("gif", "jpeg", "jpg", "png", "JPG", "JPEG", "GIF", "PNG");
+            $allowedTypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
+            $extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+            $detectedType = exif_imagetype($_FILES['image']['tmp_name']);
+            $type = $_FILES['image']['type'];
+            if (!in_array($detectedType, $allowedTypes)) {
+                $this->form_validation->set_message('validate_image', 'Konten Gambar Tidak Valid!');
+                $check = FALSE;
+            }
+            if (filesize($_FILES['image']['tmp_name']) > 2097152) {
+                $this->form_validation->set_message('validate_image', 'Ukuran file Gambar tidak boleh melebihi 2MB!');
+                $check = FALSE;
+            }
+            if (!in_array($extension, $allowedExts)) {
+                $this->form_validation->set_message('validate_image', "Ekstensi file tidak valid {$extension}");
+                $check = FALSE;
+            }
+        }
+        return $check;
+    }
+
 
 	//edit siswa
 	public function edit_siswa($id){
@@ -456,6 +487,7 @@ class MasterData extends CI_Controller
         $this->form_validation->set_rules('no_telp', 'No.Telp', 'required|trim',[
 			'required' => 'no_telp tidak boleh kosong!',
 		]);
+		$this->form_validation->set_rules('image', 'Image', 'callback_validate_image');
 
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Data Siswa';
